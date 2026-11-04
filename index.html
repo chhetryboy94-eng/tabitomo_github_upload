@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="家族旅行の行き先や観光スポットを気軽に相談できるチャットボットです。">
+  <title>Family Travel Assistant | 家族旅行相談</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-icon">✈</span>
+      <span>Family Travel <small>家族旅行アシスタント</small></span>
+    </a>
+    <span class="status"><i></i> いつでも相談できます</span>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <span class="eyebrow">YOUR FAMILY TRIP STARTS HERE</span>
+      <h1>次の家族旅行、<br><em>どこへ行こう？</em></h1>
+      <p>行きたい場所や予算、旅行の季節などを教えてください。<br>おすすめの旅行先や観光スポットを紹介します。</p>
+      <div class="intro-tags"><span>🏞️ 自然</span><span>♨️ 温泉</span><span>🏖️ 海</span><span>👨‍👩‍👧‍👦 家族旅行</span></div>
+    </section>
+
+    <section class="chat-card" aria-label="旅行相談チャット">
+      <div class="chat-heading">
+        <div class="bot-avatar">✈</div>
+        <div><strong>旅行相談チャット</strong><small>家族にぴったりの旅を見つけましょう</small></div>
+        <button id="clearButton" class="clear-button" type="button" title="会話をリセット">リセット</button>
+      </div>
+
+      <div id="chatMessages" class="messages" aria-live="polite">
+        <div class="message-row">
+          <div class="bot-avatar small">✈</div>
+          <div class="bubble-wrap"><span class="speaker">Travel Assistant</span>
+            <div class="bubble">こんにちは！😊<br>家族旅行について何でも聞いてください。<br>たとえば「東京から日帰りで行ける場所は？」「おすすめの温泉は？」などです。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="suggestions">
+        <span class="suggestion-label">質問の例</span>
+        <div class="suggestion-list">
+          <button class="suggestion" data-question="東京から日帰りで行ける場所は？">🚃 日帰り旅行</button>
+          <button class="suggestion" data-question="おすすめの温泉は？">♨️ 温泉</button>
+          <button class="suggestion" data-question="自然がきれいな場所は？">🌿 自然</button>
+          <button class="suggestion" data-question="家族旅行の予算を教えて">💰 予算</button>
+          <button class="suggestion" data-question="子どもと楽しめる場所は？">🧸 子ども向け</button>
+        </div>
+      </div>
+
+      <form id="chatForm" class="input-area">
+        <input id="messageInput" type="text" placeholder="旅行について質問してください..." autocomplete="off" maxlength="300" aria-label="メッセージ">
+        <button type="submit" class="send-button" aria-label="送信">送信 <span>➤</span></button>
+      </form>
+      <p class="notice">※このアプリはサンプル情報を使った簡単なチャットボットです。最新情報は公式サイトで確認してください。</p>
+    </section>
+    <footer>Family Travel Assistant <span>・</span> Make memories together.</footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
